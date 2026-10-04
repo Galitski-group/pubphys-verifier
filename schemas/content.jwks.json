@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.jwks.json",
+  "title": "content.jwks",
+  "description": "pubphys.content.jwks/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "captures",
+    "jwks_file_id",
+    "url"
+  ],
+  "properties": {
+    "url": {
+      "type": "string"
+    },
+    "jwks_file_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{1,40}$"
+    },
+    "captures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

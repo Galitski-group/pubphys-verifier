@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.platform-key.json",
+  "title": "content.platform-key",
+  "description": "pubphys.content.platform-key/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "key_id",
+    "new_key_signature",
+    "previous_key_id",
+    "public_key"
+  ],
+  "properties": {
+    "key_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "public_key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{43}$"
+    },
+    "previous_key_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "new_key_signature": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]{86}$"
+    }
+  },
+  "additionalProperties": false
+}

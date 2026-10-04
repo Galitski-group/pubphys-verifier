@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.upload.json",
+  "title": "content.upload",
+  "description": "pubphys.content.upload/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "ai_consent",
+    "file_id",
+    "purpose"
+  ],
+  "properties": {
+    "purpose": {
+      "type": "string",
+      "enum": [
+        "problem",
+        "claim",
+        "contest",
+        "appeal"
+      ]
+    },
+    "ai_consent": {
+      "type": "string",
+      "enum": [
+        "true",
+        "false"
+      ]
+    },
+    "file_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{1,40}$"
+    }
+  },
+  "additionalProperties": false
+}

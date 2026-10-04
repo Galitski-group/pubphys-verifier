@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.attribution.json",
+  "title": "content.attribution",
+  "description": "pubphys.content.attribution/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "new_account_ref",
+    "new_author_orcid",
+    "reason",
+    "subject"
+  ],
+  "properties": {
+    "subject": {
+      "type": "string",
+      "pattern": "^([0-9a-f]{64}|seed)$"
+    },
+    "new_author_orcid": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+    },
+    "new_account_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-z0-9]{8,64}$"
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

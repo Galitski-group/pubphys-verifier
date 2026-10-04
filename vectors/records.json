@@ -1,0 +1,1657 @@
+{
+  "description": "SPEC sections 4 to 6. Valid records (schema, content schema, array order, content_schema/type and cross-field rules all pass) with their hashes; invalid records must fail at least one of those checks.",
+  "valid": [
+    {
+      "name": "seed topic",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "topic",
+        "content_schema": "pubphys.content.topic/1",
+        "content_sha256": "dc6d0bd58e25852b298e925bd7e1c319b516c3173c0620eaa87f48ce993c6090",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "seed",
+          "assisted_by": []
+        },
+        "salt": "3261b4a8fbe54b47c0109b1cc71a9cb5baa4c7bc53e6f8436a7bd757a73a8d59",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "topic_ref": null,
+        "n": "1",
+        "external_id": "cm.cuprates",
+        "field": "cm",
+        "title": "Copper-oxide superconductors",
+        "summary": "Summary.",
+        "why": "Why.",
+        "review_cite": "B. Keimer et al., Nature, 2015",
+        "review_link": "https://doi.org/10.1038/nature14165",
+        "review_verified": "true"
+      },
+      "record_hash": "68877e68e889f7fe6e7583367052ed516042e6c2503c6ba88f0173d370b8a7d4"
+    },
+    {
+      "name": "seed revision",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "revision",
+        "content_schema": "pubphys.content.revision/1",
+        "content_sha256": "ad699f8bd1ce64ff23f7962554307b79b685cfddd11400028cebbd5bb02eabfd",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "seed",
+          "assisted_by": []
+        },
+        "salt": "c3a6a8530dbb478fb70a6ca8c7263a94ba0b08ca8d6ae9679c9cacd03663ec74",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": null,
+        "n": "1",
+        "external_id": "cm.cuprates.pairing-mechanism",
+        "topic_ref": "68877e68e889f7fe6e7583367052ed516042e6c2503c6ba88f0173d370b8a7d4",
+        "title": "Pairing mechanism",
+        "plain": "Plain statement of Pairing mechanism.",
+        "precise": "Precise statement of Pairing mechanism.",
+        "settled_by": "A measurement that settles it.",
+        "kind": "phenomenon",
+        "answer_type": "mechanism",
+        "references": "",
+        "literature_status": "open",
+        "status_note": "",
+        "posed_since": "1987",
+        "assisted_by": [],
+        "parents": []
+      },
+      "record_hash": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265"
+    },
+    {
+      "name": "human revision 2",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "revision",
+        "content_schema": "pubphys.content.revision/1",
+        "content_sha256": "6da4ee52cb16e745c3e5f6caee1eb131991ffaae2586d9fc6e818c5abda9768d",
+        "files": [],
+        "parents": [
+          "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        ],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "df3327a1ccb98669d3f6b9f60135b3c7a26e86c072e076482d8141dde8440516",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "n": "2",
+        "external_id": null,
+        "topic_ref": null,
+        "title": "Pairing mechanism, reworded",
+        "plain": "Plain statement of Pairing mechanism, reworded.",
+        "precise": "Precise statement of Pairing mechanism, reworded.",
+        "settled_by": "A measurement that settles it.",
+        "kind": "phenomenon",
+        "answer_type": "mechanism",
+        "references": "",
+        "literature_status": "open",
+        "status_note": "",
+        "posed_since": "1987",
+        "assisted_by": [],
+        "parents": []
+      },
+      "record_hash": "5426d41af8c1aa23e2f9aeabb0ca07dd183e5fea18cf427ab3fd815e3068e924"
+    },
+    {
+      "name": "upload",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "upload",
+        "content_schema": "pubphys.content.upload/1",
+        "content_sha256": "727c9ca9e12ff8d258576e323ee28f9e1d9665ff9b45e039c5328c7a640fa5d9",
+        "files": [
+          {
+            "id": "orig",
+            "name": "problem.txt",
+            "media_type": "text/plain",
+            "size": "34",
+            "sha256": "6b64bfd712f5ef282311c6458754dd8542cee14f5d35ce7acef3895c78302cb0"
+          }
+        ],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "f94f0ad45023b3d51a4be3f093d1e4a168e72d8830bd57f99bc98e65925727ed",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "purpose": "problem",
+        "ai_consent": "false",
+        "file_id": "orig"
+      },
+      "record_hash": "3c04ef39375f37b7bfab21f037b05916bc1b955b4bc6c28c1d9a6fd3dbe3ff81"
+    },
+    {
+      "name": "claim",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      },
+      "record_hash": "89326f2938e736139877149ebb65956c57258a4d37df0aef54df11ad30e04a30"
+    },
+    {
+      "name": "contest",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "contest",
+        "content_schema": "pubphys.content.contest/1",
+        "content_sha256": "71373e2408e711b9afebea2a56a93a97e340a203e0080df0f6f0084957bb928a",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "6369d9a47efe6b47b89e7da03e7f42de955aa2ef126198d5f1b629dfd71e01e3",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "grounds": "gap",
+        "quoted_locator": "eq. 3",
+        "quoted_text": "x = y",
+        "body": "Step missing.",
+        "references": ""
+      },
+      "record_hash": "d6977fcf67e18798f3cec233096398ded7d15fa1a00bc84d2b3dddfeacb15b2f"
+    },
+    {
+      "name": "appeal",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "appeal",
+        "content_schema": "pubphys.content.appeal/1",
+        "content_sha256": "2462d9027e8ae84eb4e52389381ef70ca7751b9cc0b4b683bb79ba20fdd57a58",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": "abcdefgh12"
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "60ef31c485c44487df7e746754078d19f81f019151e9171bd4f0873c295b0c2d",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "reasons": "The screening was wrong."
+      },
+      "record_hash": "32f2cedd1f5fe95d912320475f4acbada581dfc19deaf08418f23111d1662cda"
+    },
+    {
+      "name": "review accept",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "review",
+        "content_schema": "pubphys.content.review/1",
+        "content_sha256": "2f282ce6d18e5ad5f9d6f1fd318666dd9c689608b4869bed4a8281fda7ff5e28",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0001-5109-3700",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "922e5da5f36ddf03a15be7e867015096f8d4213a887770e5331c8d1abfd153d2",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "decision": "accept",
+        "reasons": "Checked.",
+        "params": {}
+      },
+      "record_hash": "61e4a73799fc34f79a774e13706241e87bdc1ff578cff69f68b519ca9d8fddd7"
+    },
+    {
+      "name": "review reassign_topic",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "review",
+        "content_schema": "pubphys.content.review/1",
+        "content_sha256": "5bb6018d62f31e623e1f4621dd2ebb3e315a1dabb21cfa24bf13e6e0d46441b7",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0001-5109-3700",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "8cc3cff8b0d32a4ea0e439f6892802f9af81f9590138c7d4de18ec4aa5341fcc",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "decision": "reassign_topic",
+        "reasons": "Checked.",
+        "params": {
+          "problem_ref": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+          "topic_ref": "68877e68e889f7fe6e7583367052ed516042e6c2503c6ba88f0173d370b8a7d4"
+        }
+      },
+      "record_hash": "2b46e5577a6e99402ebdafbd91acf96771b4907abda570aa01d2424e4aa82af1"
+    },
+    {
+      "name": "platform carry_acceptance",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "review",
+        "content_schema": "pubphys.content.review/1",
+        "content_sha256": "0b6de15c2cf04d8cf1b440be903630c9edf72b1005e95aed836cb7007f3e1772",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "aab19c8dffa275158e39e49c79805992cf2b12816f815c367aaf51884facbc7a",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "decision": "carry_acceptance",
+        "reasons": "Checked.",
+        "params": {
+          "problem_ref": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        }
+      },
+      "record_hash": "cccfe9c443ac500435b63839c53a05b9add582a3520940eaf0210f74c97cf98b"
+    },
+    {
+      "name": "withdrawal",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "withdrawal",
+        "content_schema": "pubphys.content.withdrawal/1",
+        "content_sha256": "50732add3104b36e2dd471306bc94632bff96b4f6aabe034a7f5d6a7fffb965f",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "d327220313823d611eaafc86d86453ea0f328e73fc229d3c83ae2d9b7313fc20",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "reason": "Error found."
+      },
+      "record_hash": "5104a1264732ae0b45a02b76ce8b08ed466bb1231c6580f2fe8b0b3d85c4c730"
+    },
+    {
+      "name": "reveal",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "reveal",
+        "content_schema": "pubphys.content.reveal/1",
+        "content_sha256": "6d8da971a9a58e633a66cdeb44f030c7b7f46fa0d85ad2e1f38e96fe5b6f6bb6",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "8d550f9237c8b46ad761b68373d56e62e8727fbe23eb7d819b0dbc9ff6f08cf7",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "note": "Revealing."
+      },
+      "record_hash": "8a3042331b4b8cb271ecf6afc0faf7c64e543548a657312426b4292f49a6fdb8"
+    },
+    {
+      "name": "appointment appoint",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "appointment",
+        "content_schema": "pubphys.content.appointment/1",
+        "content_sha256": "30df561dd69c82825ce31c6d0059e69f3a8fc2828401d92869a709050815af5b",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "19a2490afb4cc7d4c222a0986587bab85e729ee402cbc1958b6d2cbb10dd5f7e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "subject_orcid": "0000-0001-5109-3700",
+        "field": "cm",
+        "role": "referee",
+        "action": "appoint"
+      },
+      "record_hash": "71f648a3aeab2e8d4d2433b9eefeba14cc0be25672d2b398003694a2e62ab146"
+    },
+    {
+      "name": "appointment revoke",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "appointment",
+        "content_schema": "pubphys.content.appointment/1",
+        "content_sha256": "20522e4b4d94b0ae7aa807ff2a6b0e65b0e8146cd600fe15f69cb6a2c617e5bc",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "ab3b7444634187cbbd73f1c613af03a19597ad57a7e8c9b4fc5792ff8ea9a665",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "subject_orcid": "0000-0001-5109-3700",
+        "field": "cm",
+        "role": "referee",
+        "action": "revoke"
+      },
+      "record_hash": "a2efcaffc7fed677ac4421b5d937ce72ac94da339ac998712e14567ebc9a732d"
+    },
+    {
+      "name": "attribution",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "attribution",
+        "content_schema": "pubphys.content.attribution/1",
+        "content_sha256": "513e39eff866bba5758f2f94b3c1422de71f6f109a6a8a2ad7533d92a3ac68bd",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "6b26ec991b313855cbd652c1ff023791f0717891c22d1fcf5cba434dfca419b4",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "subject": "seed",
+        "new_author_orcid": "0000-0002-1825-0097",
+        "new_account_ref": null,
+        "reason": "Compiler."
+      },
+      "record_hash": "e81e4b1dd50b471a3c00d947d164243f23cec5b76c45a14dffda8dd360b39c75"
+    },
+    {
+      "name": "import manifest",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "import-manifest",
+        "content_schema": "pubphys.content.import-manifest/1",
+        "content_sha256": "f05d1dbdc3a16668d3b48ed8a477ca8d718cd36bec45d51a9c80a5165a55c4de",
+        "files": [
+          {
+            "id": "items",
+            "name": "items.json",
+            "media_type": "application/json",
+            "size": "47",
+            "sha256": "6ec7b2c208c20a51f833ec2008f1e5c4371e959cc86006f02635ef8959111048"
+          }
+        ],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "a4707f7b834a8561e06fac55ecb8cb82f73b5c5728f99b4b3c4fad8d1d2527d5",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "source": "PubPhys seed folder",
+        "as_of": "2026-10-02",
+        "predicate": "four-digit year >= 2024",
+        "counts": {
+          "problems": "1",
+          "topics": "1"
+        },
+        "items_file_id": "items"
+      },
+      "record_hash": "a36756dc6003416f8f55683a108497f105cfe999a37e2b6074a041f7b2d326d5"
+    },
+    {
+      "name": "platform key",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "platform-key",
+        "content_schema": "pubphys.content.platform-key/1",
+        "content_sha256": "245153c564b3ccde78031e4983d8180deaef9dff010bb699e9e0ffaa602e96d8",
+        "files": [],
+        "parents": [
+          "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        ],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "733ec17433da2932966696c94bd1e244d70504be50b83924eef2ee1ad67df9ce",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "key_id": "600864b788afb4fd004ff01a7d7b99e819cda26ab28f4e630aaaf216521a6591",
+        "public_key": "rg_RTxR0yWsPw5lgk1RKCLUYyuC5Dv58RjtONFtI1yw",
+        "previous_key_id": "b03335722974b5d97e4b9f0e40a092920104acc2590b642fea8039994acd90a6",
+        "new_key_signature": "kmt8md_m1y2sSRBLfRrLUcJEwBxYhTry0LxcoLiY0u1BcwtW14GSV3i56ZN_8QGtP7dtrahHNH6I8BEvVjReDg"
+      },
+      "record_hash": "dd8073d456aca07124dffeb8bf002fe1f76e096465aeea9dfbc44071f65b6b86"
+    },
+    {
+      "name": "platform key revocation",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "platform-key-revocation",
+        "content_schema": "pubphys.content.platform-key-revocation/1",
+        "content_sha256": "9c147d78b4dfaf613517fe8b121351a8e34959253aa9a29c960b966313607aac",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "98d78b4cbd3aee9f3e53bc3b519b5d307b0ff6dd4e8f2fb9adc01d93fac21753",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "key_id": "ebc5ecd5b3586803ef1417efd1b1cdb5f85a14985dac96d475c6bfa623850d33",
+        "reason": "Test."
+      },
+      "record_hash": "9ad1dff6a176c0ea07d1be49bb64734c06c9328afcd1ba5ab1cc6a7dc8771dde"
+    },
+    {
+      "name": "jwks",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "jwks",
+        "content_schema": "pubphys.content.jwks/1",
+        "content_sha256": "60618e9630874cecaee0a3aad2f1fb2c5715ae8dd9be518525db67a4d308dec7",
+        "files": [
+          {
+            "id": "jwks",
+            "name": "jwks.json",
+            "media_type": "application/json",
+            "size": "435",
+            "sha256": "d2ea8d40861510bc98cff1d756b133c13a252d9af2ba8ddee44cec042b62b349"
+          }
+        ],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "d06e0aa9f8be1a6708b2a8e75fb33d9d655e88baf343f41af92f3e11e4297a36",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "url": "https://orcid.org/oauth/jwks",
+        "jwks_file_id": "jwks",
+        "captures": [
+          "https://web.archive.org/example"
+        ]
+      },
+      "record_hash": "82d8468e684995cb56c01072915bd358dbf0d4cf4a5636c070e50f63dea77014"
+    }
+  ],
+  "invalid": [
+    {
+      "name": "unsorted parents",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [
+          "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "0000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "duplicate parents",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [
+          "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+          "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        ],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "unsorted files",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "upload",
+        "content_schema": "pubphys.content.upload/1",
+        "content_sha256": "727c9ca9e12ff8d258576e323ee28f9e1d9665ff9b45e039c5328c7a640fa5d9",
+        "files": [
+          {
+            "id": "zz",
+            "name": "problem.txt",
+            "media_type": "text/plain",
+            "size": "34",
+            "sha256": "6b64bfd712f5ef282311c6458754dd8542cee14f5d35ce7acef3895c78302cb0"
+          },
+          {
+            "id": "aa",
+            "name": "problem.txt",
+            "media_type": "text/plain",
+            "size": "34",
+            "sha256": "6b64bfd712f5ef282311c6458754dd8542cee14f5d35ce7acef3895c78302cb0"
+          }
+        ],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "f94f0ad45023b3d51a4be3f093d1e4a168e72d8830bd57f99bc98e65925727ed",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "purpose": "problem",
+        "ai_consent": "false",
+        "file_id": "aa"
+      }
+    },
+    {
+      "name": "malformed ORCID iD",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-009",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "ORCID iD with a trailing newline",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097\n",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "salt with embedded newlines",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "zz\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nzz",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "unknown key",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z",
+        "extra": "x"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "prototype-named key",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z",
+        "constructor": "x"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "number instead of a decimal string",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "upload",
+        "content_schema": "pubphys.content.upload/1",
+        "content_sha256": "727c9ca9e12ff8d258576e323ee28f9e1d9665ff9b45e039c5328c7a640fa5d9",
+        "files": [
+          {
+            "id": "orig",
+            "name": "problem.txt",
+            "media_type": "text/plain",
+            "size": 3,
+            "sha256": "6b64bfd712f5ef282311c6458754dd8542cee14f5d35ce7acef3895c78302cb0"
+          }
+        ],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "f94f0ad45023b3d51a4be3f093d1e4a168e72d8830bd57f99bc98e65925727ed",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "purpose": "problem",
+        "ai_consent": "false",
+        "file_id": "orig"
+      }
+    },
+    {
+      "name": "human record without author",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "human record with two authors",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": "abcdefgh12"
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "seed record with an author",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "revision",
+        "content_schema": "pubphys.content.revision/1",
+        "content_sha256": "ad699f8bd1ce64ff23f7962554307b79b685cfddd11400028cebbd5bb02eabfd",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "seed",
+          "assisted_by": []
+        },
+        "salt": "c3a6a8530dbb478fb70a6ca8c7263a94ba0b08ca8d6ae9679c9cacd03663ec74",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": null,
+        "n": "1",
+        "external_id": "cm.cuprates.pairing-mechanism",
+        "topic_ref": "68877e68e889f7fe6e7583367052ed516042e6c2503c6ba88f0173d370b8a7d4",
+        "title": "Pairing mechanism",
+        "plain": "Plain statement of Pairing mechanism.",
+        "precise": "Precise statement of Pairing mechanism.",
+        "settled_by": "A measurement that settles it.",
+        "kind": "phenomenon",
+        "answer_type": "mechanism",
+        "references": "",
+        "literature_status": "open",
+        "status_note": "",
+        "posed_since": "1987",
+        "assisted_by": [],
+        "parents": []
+      }
+    },
+    {
+      "name": "claim without target",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "upload with parents",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "upload",
+        "content_schema": "pubphys.content.upload/1",
+        "content_sha256": "727c9ca9e12ff8d258576e323ee28f9e1d9665ff9b45e039c5328c7a640fa5d9",
+        "files": [
+          {
+            "id": "orig",
+            "name": "problem.txt",
+            "media_type": "text/plain",
+            "size": "34",
+            "sha256": "6b64bfd712f5ef282311c6458754dd8542cee14f5d35ce7acef3895c78302cb0"
+          }
+        ],
+        "parents": [
+          "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        ],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "f94f0ad45023b3d51a4be3f093d1e4a168e72d8830bd57f99bc98e65925727ed",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "purpose": "problem",
+        "ai_consent": "false",
+        "file_id": "orig"
+      }
+    },
+    {
+      "name": "claim with platform origin",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "revision 1 with problem_ref",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "revision",
+        "content_schema": "pubphys.content.revision/1",
+        "content_sha256": "ad699f8bd1ce64ff23f7962554307b79b685cfddd11400028cebbd5bb02eabfd",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "seed",
+          "assisted_by": []
+        },
+        "salt": "c3a6a8530dbb478fb70a6ca8c7263a94ba0b08ca8d6ae9679c9cacd03663ec74",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "n": "1",
+        "external_id": "cm.cuprates.pairing-mechanism",
+        "topic_ref": "68877e68e889f7fe6e7583367052ed516042e6c2503c6ba88f0173d370b8a7d4",
+        "title": "Pairing mechanism",
+        "plain": "Plain statement of Pairing mechanism.",
+        "precise": "Precise statement of Pairing mechanism.",
+        "settled_by": "A measurement that settles it.",
+        "kind": "phenomenon",
+        "answer_type": "mechanism",
+        "references": "",
+        "literature_status": "open",
+        "status_note": "",
+        "posed_since": "1987",
+        "assisted_by": [],
+        "parents": []
+      }
+    },
+    {
+      "name": "revision 2 with topic_ref",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "revision",
+        "content_schema": "pubphys.content.revision/1",
+        "content_sha256": "6da4ee52cb16e745c3e5f6caee1eb131991ffaae2586d9fc6e818c5abda9768d",
+        "files": [],
+        "parents": [
+          "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        ],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "df3327a1ccb98669d3f6b9f60135b3c7a26e86c072e076482d8141dde8440516",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "n": "2",
+        "external_id": null,
+        "topic_ref": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "title": "Pairing mechanism, reworded",
+        "plain": "Plain statement of Pairing mechanism, reworded.",
+        "precise": "Precise statement of Pairing mechanism, reworded.",
+        "settled_by": "A measurement that settles it.",
+        "kind": "phenomenon",
+        "answer_type": "mechanism",
+        "references": "",
+        "literature_status": "open",
+        "status_note": "",
+        "posed_since": "1987",
+        "assisted_by": [],
+        "parents": []
+      }
+    },
+    {
+      "name": "review with a missing param",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "review",
+        "content_schema": "pubphys.content.review/1",
+        "content_sha256": "5bb6018d62f31e623e1f4621dd2ebb3e315a1dabb21cfa24bf13e6e0d46441b7",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0001-5109-3700",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "8cc3cff8b0d32a4ea0e439f6892802f9af81f9590138c7d4de18ec4aa5341fcc",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "decision": "reassign_topic",
+        "reasons": "Checked.",
+        "params": {
+          "problem_ref": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        }
+      }
+    },
+    {
+      "name": "review with an extra param",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "review",
+        "content_schema": "pubphys.content.review/1",
+        "content_sha256": "2f282ce6d18e5ad5f9d6f1fd318666dd9c689608b4869bed4a8281fda7ff5e28",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0001-5109-3700",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "922e5da5f36ddf03a15be7e867015096f8d4213a887770e5331c8d1abfd153d2",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "decision": "accept",
+        "reasons": "Checked.",
+        "params": {
+          "x": "y"
+        }
+      }
+    },
+    {
+      "name": "impossible created time",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-13-45T99:99:99Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "content_schema of another type",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.review/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [],
+        "parents": [],
+        "target": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "5c0eee35ea6b8d134c934c0c1fe91988287ac18016c5c4317c90e755628d5c9e",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "file id named in content is missing",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "upload",
+        "content_schema": "pubphys.content.upload/1",
+        "content_sha256": "727c9ca9e12ff8d258576e323ee28f9e1d9665ff9b45e039c5328c7a640fa5d9",
+        "files": [
+          {
+            "id": "orig",
+            "name": "problem.txt",
+            "media_type": "text/plain",
+            "size": "34",
+            "sha256": "6b64bfd712f5ef282311c6458754dd8542cee14f5d35ce7acef3895c78302cb0"
+          }
+        ],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "f94f0ad45023b3d51a4be3f093d1e4a168e72d8830bd57f99bc98e65925727ed",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "purpose": "problem",
+        "ai_consent": "false",
+        "file_id": "other"
+      }
+    },
+    {
+      "name": "field key with capitals",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "topic",
+        "content_schema": "pubphys.content.topic/1",
+        "content_sha256": "dc6d0bd58e25852b298e925bd7e1c319b516c3173c0620eaa87f48ce993c6090",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "seed",
+          "assisted_by": []
+        },
+        "salt": "3261b4a8fbe54b47c0109b1cc71a9cb5baa4c7bc53e6f8436a7bd757a73a8d59",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "topic_ref": null,
+        "n": "1",
+        "external_id": "cm.cuprates",
+        "field": "CM",
+        "title": "Copper-oxide superconductors",
+        "summary": "Summary.",
+        "why": "Why.",
+        "review_cite": "B. Keimer et al., Nature, 2015",
+        "review_link": "https://doi.org/10.1038/nature14165",
+        "review_verified": "true"
+      }
+    },
+    {
+      "name": "declared parent missing from record parents",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "revision",
+        "content_schema": "pubphys.content.revision/1",
+        "content_sha256": "1b1080adff124d82b3f4d380a50cf986e381c14de3dd6bdec693fb64dac7ae04",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "0679d4ca5dd46c3583791a802966e0a12d763ba2c47ef7a5d8558a2d3bb84711",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": null,
+        "n": "1",
+        "external_id": null,
+        "topic_ref": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "title": "X",
+        "plain": "Plain statement of X.",
+        "precise": "Precise statement of X.",
+        "settled_by": "A measurement that settles it.",
+        "kind": "phenomenon",
+        "answer_type": "mechanism",
+        "references": "",
+        "literature_status": "open",
+        "status_note": "",
+        "posed_since": "1987",
+        "assisted_by": [],
+        "parents": [
+          {
+            "parent_revision": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+            "relation": "variant",
+            "note": "n"
+          }
+        ]
+      }
+    },
+    {
+      "name": "attribution without a new author",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "attribution",
+        "content_schema": "pubphys.content.attribution/1",
+        "content_sha256": "a6a6da647d46bafcfba4cac26512174894e161b796f3df3636afc341295f4591",
+        "files": [],
+        "parents": [],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "46b592bc961273e40c9b3421f646b4d44c1ef0a2ecf77ff1bc5dac415e2816f3",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "subject": "seed",
+        "new_author_orcid": null,
+        "new_account_ref": null,
+        "reason": "r"
+      }
+    },
+    {
+      "name": "review param that is not a record hash",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "review",
+        "content_schema": "pubphys.content.review/1",
+        "content_sha256": "dd6b4825de6e882fc0d346214204eab69545997aeeb2e5656fbf461f00a0e5b7",
+        "files": [],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0001-5109-3700",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "bb3bd71c8d516c31a5a0a35e5915d8aa930d8028554781d4ce93835f283cb4d4",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "decision": "verify_note",
+        "reasons": "Checked.",
+        "params": {
+          "problem_ref": "x"
+        }
+      }
+    },
+    {
+      "name": "claim carrying a file",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "claim",
+        "content_schema": "pubphys.content.claim/1",
+        "content_sha256": "5f5eaadc80fc624eb0de350d29d91326a10c8b3648ff746436a704011da658c7",
+        "files": [
+          {
+            "id": "orig",
+            "name": "problem.txt",
+            "media_type": "text/plain",
+            "size": "34",
+            "sha256": "6b64bfd712f5ef282311c6458754dd8542cee14f5d35ce7acef3895c78302cb0"
+          }
+        ],
+        "parents": [],
+        "target": "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe",
+        "builds_on": [],
+        "author": {
+          "orcid": "0000-0002-1825-0097",
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "human",
+          "assisted_by": []
+        },
+        "salt": "f4cdddeca6a1d077d2cbe322c35e6ecc2978349a2c87ad48ccc57a3c4f17a57d",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "problem_ref": "b12a69fb687a8f53b57b7c206198ee5242b70cbd7e3c50106197f1d5c52e9265",
+        "kind": "progress",
+        "body": "A partial result.",
+        "references": "",
+        "assisted_by": []
+      }
+    },
+    {
+      "name": "platform key naming itself as previous",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "platform-key",
+        "content_schema": "pubphys.content.platform-key/1",
+        "content_sha256": "fdae48954c176399fd2f8337065398581a25905750a3705af4cae5d1dd17890a",
+        "files": [],
+        "parents": [
+          "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        ],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "411b0427da689853ac3d87d57831971d46b4c0a55142d9358c34a263695f43eb",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "key_id": "600864b788afb4fd004ff01a7d7b99e819cda26ab28f4e630aaaf216521a6591",
+        "public_key": "rg_RTxR0yWsPw5lgk1RKCLUYyuC5Dv58RjtONFtI1yw",
+        "previous_key_id": "600864b788afb4fd004ff01a7d7b99e819cda26ab28f4e630aaaf216521a6591",
+        "new_key_signature": "kmt8md_m1y2sSRBLfRrLUcJEwBxYhTry0LxcoLiY0u1BcwtW14GSV3i56ZN_8QGtP7dtrahHNH6I8BEvVjReDg"
+      }
+    },
+    {
+      "name": "first platform key with a parent",
+      "record": {
+        "schema": "pubphys.record/2",
+        "site": "pubphys.com",
+        "type": "platform-key",
+        "content_schema": "pubphys.content.platform-key/1",
+        "content_sha256": "eaf4fd02d5b5ef6cb8e63b48aae94870ee022584393a560850fe374b56b5045f",
+        "files": [],
+        "parents": [
+          "7259f7d789a4d8b4f724629efa084732a081fcc9a475471b3a2b68782a1aa3fe"
+        ],
+        "target": null,
+        "builds_on": [],
+        "author": {
+          "orcid": null,
+          "account_ref": null
+        },
+        "origin": {
+          "kind": "platform",
+          "assisted_by": []
+        },
+        "salt": "8c6702c298f739b046fad4101ffbf6e268fb94d83a78cc76eb2abbb39c01f250",
+        "created": "2026-10-02T09:00:00Z"
+      },
+      "content": {
+        "key_id": "600864b788afb4fd004ff01a7d7b99e819cda26ab28f4e630aaaf216521a6591",
+        "public_key": "rg_RTxR0yWsPw5lgk1RKCLUYyuC5Dv58RjtONFtI1yw",
+        "previous_key_id": null,
+        "new_key_signature": "kmt8md_m1y2sSRBLfRrLUcJEwBxYhTry0LxcoLiY0u1BcwtW14GSV3i56ZN_8QGtP7dtrahHNH6I8BEvVjReDg"
+      }
+    }
+  ]
+}

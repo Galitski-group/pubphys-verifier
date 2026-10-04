@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.withdrawal.json",
+  "title": "content.withdrawal",
+  "description": "pubphys.content.withdrawal/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "reason"
+  ],
+  "properties": {
+    "reason": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

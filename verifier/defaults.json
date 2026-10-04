@@ -1,0 +1,13 @@
+{
+  "comment": "Pinned out of band from the PubPhys site (wiki/platform/phase-2-plan.md sections 10 and 11). Trust these only through an independently obtained release of the verifier.",
+  "recovery_key_ids": [
+    "8958cdba40c6b8f89211ac5a710d3c3739004515a7d3e48eadf883d6ff999b33"
+  ],
+  "orcid_client_ids": [
+    "APP-WHRXAWF8SWZK87OU"
+  ],
+  "witness_keys": [
+    "witness.stagemole.eu+67f7aea0+BEqSG3yu9YrmcM3BHvQYTxwFj3uSWakQepafafpUqklv"
+  ],
+  "revoked_keys": []
+}

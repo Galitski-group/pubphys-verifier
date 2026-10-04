@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.appointment.json",
+  "title": "content.appointment",
+  "description": "pubphys.content.appointment/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "action",
+    "field",
+    "role",
+    "subject_orcid"
+  ],
+  "properties": {
+    "subject_orcid": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+    },
+    "field": {
+      "type": "string",
+      "pattern": "^([a-z]{2,8}|\\*)$"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "moderator",
+        "referee",
+        "chief_moderator"
+      ]
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "appoint",
+        "revoke"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

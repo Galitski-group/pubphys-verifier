@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/envelope.json",
+  "title": "envelope",
+  "description": "pubphys.envelope/1 (SPEC section 8).",
+  "type": "object",
+  "required": [
+    "attested_hash",
+    "platform_signature",
+    "schema"
+  ],
+  "properties": {
+    "schema": {
+      "const": "pubphys.envelope/1"
+    },
+    "attested_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "platform_signature": {
+      "type": "object",
+      "required": [
+        "key_id",
+        "sig"
+      ],
+      "properties": {
+        "key_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "sig": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_-]{86}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

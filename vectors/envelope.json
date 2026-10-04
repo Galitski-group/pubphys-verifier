@@ -1,0 +1,31 @@
+{
+  "description": "SPEC section 8. Ed25519 test key 1 (seed = SHA-256('pubphys test platform key 1')). Signatures are deterministic.",
+  "public_key": "8fMo7S_Rh7tL2StfXyMtnFYeZ-Mu_gdoPqCF-516U98",
+  "key_id": "b03335722974b5d97e4b9f0e40a092920104acc2590b642fea8039994acd90a6",
+  "cases": [
+    {
+      "attested_hash": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
+      "envelope": {
+        "schema": "pubphys.envelope/1",
+        "attested_hash": "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
+        "platform_signature": {
+          "key_id": "b03335722974b5d97e4b9f0e40a092920104acc2590b642fea8039994acd90a6",
+          "sig": "a7u3mAArpV33p4IQqos-bOrJtvThr-p6t3lWTTfhds6gNr30JCcdl2fGfV1R6c5g5KlQnXkgm3aUXQpCt9NsBQ"
+        }
+      },
+      "envelope_hash": "e88dd65ffe273362ead8a87bdc6ce96734077906a04981665fb0a93411e1725b"
+    },
+    {
+      "attested_hash": "3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3",
+      "envelope": {
+        "schema": "pubphys.envelope/1",
+        "attested_hash": "3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3",
+        "platform_signature": {
+          "key_id": "b03335722974b5d97e4b9f0e40a092920104acc2590b642fea8039994acd90a6",
+          "sig": "GWu4WxY4l6gx7eIJTFzzlaiKCU00NZS4zpnmma37fWv7x81JXBZhH134rXh2Om80FOTzakAA6Ljmzhli_8hkDg"
+        }
+      },
+      "envelope_hash": "66e0ae26e7904d6ffd2f83536ed74484a52d54ccc2faa133dca91dd12003c182"
+    }
+  ]
+}

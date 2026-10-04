@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/attested.json",
+  "title": "attested",
+  "description": "pubphys.attested/1 (SPEC section 7).",
+  "type": "object",
+  "required": [
+    "attestation",
+    "record_hash",
+    "schema"
+  ],
+  "properties": {
+    "schema": {
+      "const": "pubphys.attested/1"
+    },
+    "record_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "attestation": {
+      "type": "object",
+      "required": [
+        "batch",
+        "client_id",
+        "id_token_sha256",
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "orcid-oidc",
+            "platform",
+            "none"
+          ]
+        },
+        "batch": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "minItems": 1
+        },
+        "id_token_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "client_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Za-z0-9-]{1,64}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

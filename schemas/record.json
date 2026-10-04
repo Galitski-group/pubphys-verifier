@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/record.json",
+  "title": "record",
+  "description": "pubphys.record/2 (SPEC section 4).",
+  "type": "object",
+  "required": [
+    "author",
+    "builds_on",
+    "content_schema",
+    "content_sha256",
+    "created",
+    "files",
+    "origin",
+    "parents",
+    "salt",
+    "schema",
+    "site",
+    "target",
+    "type"
+  ],
+  "properties": {
+    "schema": {
+      "const": "pubphys.record/2"
+    },
+    "site": {
+      "const": "pubphys.com"
+    },
+    "type": {
+      "type": "string",
+      "pattern": "^[a-z][a-z-]{0,39}$"
+    },
+    "content_schema": {
+      "type": "string",
+      "pattern": "^pubphys\\.content\\.[a-z][a-z-]{0,39}/[1-9][0-9]*$"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "media_type",
+          "name",
+          "sha256",
+          "size"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]{1,40}$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "media_type": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9.+-]*/[a-z0-9][a-z0-9.+-]*$"
+          },
+          "size": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "parents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "target": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "builds_on": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "author": {
+      "type": "object",
+      "required": [
+        "account_ref",
+        "orcid"
+      ],
+      "properties": {
+        "orcid": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+        },
+        "account_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z0-9]{8,64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "origin": {
+      "type": "object",
+      "required": [
+        "assisted_by",
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "human",
+            "seed",
+            "platform"
+          ]
+        },
+        "assisted_by": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "salt": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "created": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    }
+  },
+  "additionalProperties": false
+}

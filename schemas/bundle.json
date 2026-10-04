@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/bundle.json",
+  "title": "bundle",
+  "description": "pubphys.bundle/1 (SPEC section 10). Not hashed; its arrays need not be sorted.",
+  "type": "object",
+  "required": [
+    "attested",
+    "attesting",
+    "content",
+    "content_withheld",
+    "envelope",
+    "files",
+    "id_token",
+    "id_token_withheld",
+    "log",
+    "orcid_key_evidence",
+    "ots",
+    "record",
+    "schema"
+  ],
+  "properties": {
+    "schema": {
+      "const": "pubphys.bundle/1"
+    },
+    "record": {
+      "type": "object"
+    },
+    "content": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "content_withheld": {
+      "type": "string",
+      "enum": [
+        "true",
+        "false"
+      ]
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "data",
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]{1,40}$"
+          },
+          "data": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[A-Za-z0-9_-]*$"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "attested": {
+      "type": "object"
+    },
+    "id_token": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$"
+    },
+    "id_token_withheld": {
+      "type": "string",
+      "enum": [
+        "true",
+        "false"
+      ]
+    },
+    "envelope": {
+      "type": "object"
+    },
+    "ots": {
+      "type": "object",
+      "required": [
+        "attested",
+        "envelope"
+      ],
+      "properties": {
+        "attested": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]*$"
+          }
+        },
+        "envelope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]*$"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "log": {
+      "type": "object",
+      "required": [
+        "checkpoint",
+        "leaf_index",
+        "promise",
+        "proof",
+        "tree_size"
+      ],
+      "properties": {
+        "leaf_index": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,15})$"
+        },
+        "tree_size": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,15})$"
+        },
+        "proof": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "checkpoint": {
+          "type": "string"
+        },
+        "promise": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "orcid_key_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "captures",
+          "jwk"
+        ],
+        "properties": {
+          "jwk": {
+            "type": "object"
+          },
+          "captures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "attesting": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

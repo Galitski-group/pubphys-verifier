@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.contest.json",
+  "title": "content.contest",
+  "description": "pubphys.content.contest/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "body",
+    "grounds",
+    "quoted_locator",
+    "quoted_text",
+    "references"
+  ],
+  "properties": {
+    "grounds": {
+      "type": "string",
+      "enum": [
+        "error",
+        "gap",
+        "prior_art",
+        "missing_credit",
+        "irreproducible"
+      ]
+    },
+    "quoted_locator": {
+      "type": "string"
+    },
+    "quoted_text": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "references": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

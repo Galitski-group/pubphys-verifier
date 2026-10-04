@@ -1,0 +1,40 @@
+{
+  "description": "SPEC section 7.1. Batch -> nonce; unsorted or duplicated inputs give the nonce of the normalized batch. The production case checks a real ORCID token against ORCID's key.",
+  "nonce_cases": [
+    {
+      "name": "single",
+      "batch": [
+        "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed"
+      ],
+      "nonce": "06962d9d42c5669c3c14c2137dd0806d2fd37d2f878cc41e78b39abd41b8651f"
+    },
+    {
+      "name": "three sorted",
+      "batch": [
+        "3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3",
+        "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
+        "8b5b9db0c13db24256c829aa364aa90c6d2eba318b9232a4ab9313b954d3555f"
+      ],
+      "nonce": "4d06802c4d0ffefb0d1cfb35828419733298d2177f24982dfb6d2afa3ab22e38"
+    },
+    {
+      "name": "unsorted with duplicate",
+      "batch": [
+        "8b5b9db0c13db24256c829aa364aa90c6d2eba318b9232a4ab9313b954d3555f",
+        "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed",
+        "3fc4ccfe745870e2c0d99f71f30ff0656c8dedd41cc1d7d3d376b0dbe685e2f3",
+        "7692c3ad3540bb803c020b3aee66cd8887123234ea0c6e7143c0add73ff431ed"
+      ],
+      "nonce": "4d06802c4d0ffefb0d1cfb35828419733298d2177f24982dfb6d2afa3ab22e38"
+    }
+  ],
+  "production_case": {
+    "fixture": "fixtures/orcid-production-token.json",
+    "expected": {
+      "signature_valid": true,
+      "nonce_matches_batch": true,
+      "aud": "APP-WHRXAWF8SWZK87OU",
+      "iss": "https://orcid.org"
+    }
+  }
+}

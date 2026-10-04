@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.review.json",
+  "title": "content.review",
+  "description": "pubphys.content.review/1. Required params per decision are fixed in SPEC section 6.",
+  "type": "object",
+  "required": [
+    "decision",
+    "params",
+    "reasons"
+  ],
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": [
+        "accept",
+        "reject",
+        "screening_reject",
+        "recommend",
+        "not_recommend",
+        "triage_substantive",
+        "triage_not_substantive",
+        "uphold",
+        "dismiss",
+        "credit",
+        "reverse",
+        "remove",
+        "appeal_grant",
+        "appeal_deny",
+        "carry_acceptance",
+        "reassign_topic",
+        "verify_note"
+      ]
+    },
+    "reasons": {
+      "type": "string"
+    },
+    "params": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

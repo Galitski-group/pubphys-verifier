@@ -1,0 +1,96 @@
+{
+  "description": "SPEC section 9. Signed notes by test key 1 under the name pubphys.com/log/v1. 'valid' notes verify; 'invalid' notes do not; 'bad_checkpoints' verify as notes but are not valid checkpoints.",
+  "public_key": "8fMo7S_Rh7tL2StfXyMtnFYeZ-Mu_gdoPqCF-516U98",
+  "key_hash": "860a879d",
+  "valid": [
+    {
+      "name": "checkpoint",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n",
+      "tree_size": "17",
+      "root": "e477284d765ad758eb76ebfb108b1f37cc0f7d7ae6ddb5ca1ae412dadb3eda58"
+    },
+    {
+      "name": "inclusion promise",
+      "note": "pubphys.com/log/v1 promise\n44c8fd03951245c885e574da05b7cdcf99f8c6a34bd625c7af3d843763a8ff0a\n16\n2026-10-02T09:00:00Z\n2026-10-02T11:00:00Z\n\n— pubphys.com/log/v1 hgqHnX8nBzcj39+ItlEvs8Z2Zf/xYb94Z54WZ9PV7zHgWb9WN5hz7hPPOPiRQt7jbqq0SxWtthgYDSq8PuKfS47tmQg=\n",
+      "promise": true
+    },
+    {
+      "name": "text containing an empty line",
+      "note": "first paragraph\n\nsecond paragraph\n\n— pubphys.com/log/v1 hgqHnamPj8W1Fo/B9glfnVC+CL43UQZpCmOTLLlSSCS8C8bztBPXYdS8IJefafYNImAgPgES9Rl1lp0dbJ47UA+F/wY=\n"
+    },
+    {
+      "name": "extra signature by an unknown key",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 JzhH732wg/BT/dO4G6VdaZtL198TPPAWxOZ7hTtttDNhN4Taza1uykhx0GdK0ZUY8XNXRJsmp9h0sO1DyEvc4dzRIgo=\n"
+    }
+  ],
+  "invalid": [
+    {
+      "name": "text altered",
+      "note": "pubphys.com/log/v1\n16\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n"
+    },
+    {
+      "name": "signed by an untrusted key",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 JzhH732wg/BT/dO4G6VdaZtL198TPPAWxOZ7hTtttDNhN4Taza1uykhx0GdK0ZUY8XNXRJsmp9h0sO1DyEvc4dzRIgo=\n"
+    },
+    {
+      "name": "signature without padding",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE\n"
+    },
+    {
+      "name": "control character",
+      "note": "pubphys.com/log/v1\t\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n"
+    },
+    {
+      "name": "no final newline",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE="
+    },
+    {
+      "name": "101 signature lines",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n"
+    },
+    {
+      "name": "a valid and an invalid signature by the same key",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 hgqHnTQFGIKTyWOME49eVqzekn9IHU13MFAWacy2JK71MVh7SbRiuJMXJwEgcTR4pKS/SvbarumrYnYUZxSp94R/VwU=\n"
+    },
+    {
+      "name": "two spaces after the key name",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1  hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n"
+    },
+    {
+      "name": "signature name with a no-break space",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n— pubphys.com/log/v1 x hgqHnfwgmjRCSGj45cqMJJtxqpEuE20/s/xXbtIsgouQs/OtDF46xIn91BxVM5Lgamaqs1EW/gpY5QJKDWkVjPCdhQE=\n"
+    }
+  ],
+  "bad_promises": [
+    {
+      "name": "deadline three hours after issue",
+      "note": "pubphys.com/log/v1 promise\n44c8fd03951245c885e574da05b7cdcf99f8c6a34bd625c7af3d843763a8ff0a\n16\n2026-10-02T09:00:00Z\n2026-10-02T12:00:00Z\n\n— pubphys.com/log/v1 hgqHnYqL53DNlryF4hvtPXvRJf3KWwRcmuIzDvPrLWFfwLnIovnlheyilUddBbwUQnITgz09k3257F+rTAyML+WE5QE=\n"
+    },
+    {
+      "name": "deadline before issue",
+      "note": "pubphys.com/log/v1 promise\n44c8fd03951245c885e574da05b7cdcf99f8c6a34bd625c7af3d843763a8ff0a\n16\n2026-10-02T09:00:00Z\n2026-10-02T08:00:00Z\n\n— pubphys.com/log/v1 hgqHnWSOYHPY8sRj3gtj4yd6lALQGtGV8Ts1JcTkeY+yL3JxA/upFoWFBR85nvnFYI7nqhJcKBXzJC4Da2I5tSnKFg0=\n"
+    },
+    {
+      "name": "missing issue time",
+      "note": "pubphys.com/log/v1 promise\n44c8fd03951245c885e574da05b7cdcf99f8c6a34bd625c7af3d843763a8ff0a\n16\n2026-10-02T11:00:00Z\n\n— pubphys.com/log/v1 hgqHnSLtoXFojpL43gYWnqpKT1gPsbjCZ5IQyGUs1yrerK1kzyENEVRVRpzG/OG1EPcb2piD0XHaVJ2Smv6QFyTu6Q8=\n"
+    }
+  ],
+  "bad_checkpoints": [
+    {
+      "name": "leading zero size",
+      "note": "pubphys.com/log/v1\n017\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnWbxZB2E9c/05q2CRFsKzjI2kj8L/EBjn+9DfxMVfxoMORRqbhEJ2FrJm6f6NQgzhavg3UtzVaPunSYg777ENAQ=\n"
+    },
+    {
+      "name": "extension line",
+      "note": "pubphys.com/log/v1\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\nextension\n\n— pubphys.com/log/v1 hgqHnbqNhI8RLEBHHKcFuxKtYyHAY6KGCUGu4QIuR9IIqxHHQN1kOZqEL0HZ/TIn4kSmkErk8ML/p2zrqIZoxVxczQ8=\n"
+    },
+    {
+      "name": "short root",
+      "note": "pubphys.com/log/v1\n17\neHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eA==\n\n— pubphys.com/log/v1 hgqHnfPFUTYu3anZSn8wmw0IKp9x/XxbiToYWDsktpXOZX9KItxsaEcky0Mjg1/2amd6ZpbCoZigmoYEl96IqLgJVQY=\n"
+    },
+    {
+      "name": "other origin",
+      "note": "example.com/log\n17\n5HcoTXZa11jrduv7EIsfN8wPfXrm3bXKGuQS2ts+2lg=\n\n— pubphys.com/log/v1 hgqHnbIf1aE5qigh7zORyR/1RlAFdRN488P0ReHvaoOWWgILF0Y+o1iVZNjyjKngItObqPi09GjK71X4UpYq2rkB9QU=\n"
+    }
+  ]
+}

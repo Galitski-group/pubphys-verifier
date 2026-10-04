@@ -1,0 +1,130 @@
+{
+  "description": "SPEC section 2. value -> canonical bytes (as a string) and SHA-256; error cases must be rejected.",
+  "cases": [
+    {
+      "name": "sorted keys",
+      "value": {
+        "b": "2",
+        "a": "1",
+        "c": null
+      },
+      "canonical": "{\"a\":\"1\",\"b\":\"2\",\"c\":null}",
+      "sha256": "3d05a02ea3ff6653ab5f8133e1886b9299cd467add8954e1514ee9359ce6c4cb"
+    },
+    {
+      "name": "key byte order",
+      "value": {
+        "aa": "5",
+        "a0": "4",
+        "a": "3",
+        "_": "2",
+        "A": "1"
+      },
+      "canonical": "{\"A\":\"1\",\"_\":\"2\",\"a\":\"3\",\"a0\":\"4\",\"aa\":\"5\"}",
+      "sha256": "ecc258fac38ac83b43c893084267cd79360265ca2477037c6b8e71df3dc4b51f"
+    },
+    {
+      "name": "nested arrays and objects",
+      "value": {
+        "z": [
+          "a",
+          {
+            "y": "1",
+            "x": []
+          }
+        ],
+        "a": {}
+      },
+      "canonical": "{\"a\":{},\"z\":[\"a\",{\"x\":[],\"y\":\"1\"}]}",
+      "sha256": "0d3692d92efcd2f31592b8d1a49fced30807e6719e2de2dbf67b433ee8609daf"
+    },
+    {
+      "name": "escapes",
+      "value": {
+        "s": "q\"b\\s/  é😀"
+      },
+      "canonical": "{\"s\":\"q\\\"b\\\\s/  é😀\"}",
+      "sha256": "43f37598e801cdba53533876f362d8b159bde9bde024ff6dae5158ce5a00af4d"
+    },
+    {
+      "name": "all control characters",
+      "value": {
+        "c": "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f"
+      },
+      "canonical": "{\"c\":\"\\u0000\\u0001\\u0002\\u0003\\u0004\\u0005\\u0006\\u0007\\b\\t\\n\\u000b\\f\\r\\u000e\\u000f\\u0010\\u0011\\u0012\\u0013\\u0014\\u0015\\u0016\\u0017\\u0018\\u0019\\u001a\\u001b\\u001c\\u001d\\u001e\\u001f\"}",
+      "sha256": "151bcbea35ceb1af79368d5a88b79d56e3aacde3ff9fcb018182e39c61707fb8"
+    },
+    {
+      "name": "not NFC is hashed as given",
+      "value": {
+        "a": "é"
+      },
+      "canonical": "{\"a\":\"é\"}",
+      "sha256": "30ab99c636f80168ea5dda59939352b6022c12941d2ffd3fd7d18fa7acd8565c"
+    },
+    {
+      "name": "carriage return is escaped",
+      "value": {
+        "a": "x\r\ny"
+      },
+      "canonical": "{\"a\":\"x\\r\\ny\"}",
+      "sha256": "bc1b1e898efeaeced3bebcbaa4f6a6bd5b3121f7fbabf860e9ae7f3875af060c"
+    },
+    {
+      "name": "empty string and key",
+      "value": {
+        "": ""
+      },
+      "canonical": "{\"\":\"\"}",
+      "sha256": "86cfeee6df382a203f626305afbca44d228cac67acd151ccf2db29530c548fea"
+    },
+    {
+      "name": "printable ASCII key characters",
+      "value": {
+        " ~!": "x"
+      },
+      "canonical": "{\" ~!\":\"x\"}",
+      "sha256": "f07531dd5990ca0d100f5760ff0b0518d7abaa1e8abc2d687ab9cdaeb92b62b0"
+    },
+    {
+      "name": "number",
+      "value": {
+        "a": 1
+      },
+      "error": true
+    },
+    {
+      "name": "boolean",
+      "value": {
+        "a": true
+      },
+      "error": true
+    },
+    {
+      "name": "non-ASCII key",
+      "value": {
+        "clé": "x"
+      },
+      "error": true
+    },
+    {
+      "name": "key with a tab",
+      "value": {
+        "a\tb": "x"
+      },
+      "error": true
+    },
+    {
+      "name": "key with DEL",
+      "value": {
+        "a": "x"
+      },
+      "error": true
+    },
+    {
+      "name": "lone surrogate",
+      "json": "{\"a\":\"\\ud800\"}",
+      "error": true
+    }
+  ]
+}

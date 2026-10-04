@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.claim.json",
+  "title": "content.claim",
+  "description": "pubphys.content.claim/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "assisted_by",
+    "body",
+    "kind",
+    "problem_ref",
+    "references"
+  ],
+  "properties": {
+    "problem_ref": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "progress",
+        "solution",
+        "disproof"
+      ]
+    },
+    "body": {
+      "type": "string"
+    },
+    "references": {
+      "type": "string"
+    },
+    "assisted_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

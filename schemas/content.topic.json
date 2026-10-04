@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pubphys.com/protocol/schemas/content.topic.json",
+  "title": "content.topic",
+  "description": "pubphys.content.topic/1 (SPEC section 6).",
+  "type": "object",
+  "required": [
+    "external_id",
+    "field",
+    "n",
+    "review_cite",
+    "review_link",
+    "review_verified",
+    "summary",
+    "title",
+    "topic_ref",
+    "why"
+  ],
+  "properties": {
+    "topic_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "n": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "external_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "field": {
+      "type": "string",
+      "pattern": "^[a-z]{2,8}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "why": {
+      "type": "string"
+    },
+    "review_cite": {
+      "type": "string"
+    },
+    "review_link": {
+      "type": "string"
+    },
+    "review_verified": {
+      "type": "string",
+      "enum": [
+        "true",
+        "false"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
