@@ -8,7 +8,8 @@
 // --live-orcid  fetches ORCID's live JWKS (https://orcid.org/oauth/jwks) and adds it to the trusted
 //               ORCID keys. Keys inside the bundle are never trusted.
 // --require     comma-separated parts that must be "verified" for exit code 0
-//               (default: structure,content,platform,log). Example: --require structure,content,identity
+//               (default: structure,content,platform,log, plus identity for a record signed with ORCID).
+//               Example: --require structure,content,identity
 // Exit codes: 0 every required part verified; 1 a part failed or a required part is not verified;
 // 2 usage error or unreadable input.
 // --bitcoin [url] checks the OpenTimestamps proofs against Bitcoin block headers from an
@@ -35,6 +36,7 @@ if (!bundlePath || !trustPath) {
   process.exit(2);
 }
 const required = (opt("--require") || "structure,content,platform,log").split(",").filter(Boolean);
+const requireGiven = Boolean(opt("--require"));
 
 const decode = bytes => new TextDecoder("utf-8", { fatal: true, ignoreBOM: true }).decode(bytes);
 const usage = msg => { console.error("pubphys-verify: " + msg); process.exit(2); };
@@ -53,11 +55,16 @@ if (args.includes("--live-orcid")) {
 }
 
 const { parts, notes, recordHash, promise } = await verifyFull(bundleText, trust, { getHeader: bitcoinUrl ? esploraHeaders(bitcoinUrl) : null });
+// A record signed with ORCID is about a person: by default its identity is required too (review F27, A19).
+try {
+  if (!requireGiven && JSON.parse(bundleText)?.attested?.attestation?.kind === "orcid-oidc" && !required.includes("identity")) required.push("identity");
+} catch { /* structure reports it */ }
 
 console.log(`record ${recordHash || "(not computed)"}`);
 for (const [part, result] of Object.entries(parts)) console.log(`  ${part.padEnd(10)} ${result}${required.includes(part) ? "  (required)" : ""}`);
 if (promise) console.log(`  ${"promise".padEnd(10)} ${promise.status}`);
 for (const n of notes) console.log(`  note: ${n}`);
 const ok = !Object.values(parts).includes("failed") && required.every(p => parts[p] === "verified");
-console.log(ok ? "result: all required parts verified" : "result: NOT verified");
+const unchecked = Object.entries(parts).filter(([p, r]) => !required.includes(p) && r === "not_checked").map(([p]) => p);
+console.log(ok ? `result: all required parts verified${unchecked.length ? ` (not checked: ${unchecked.join(", ")})` : ""}` : "result: NOT verified");
 process.exit(ok ? 0 : 1);

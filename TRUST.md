@@ -38,8 +38,9 @@ once K is revoked (the ceremony signs it again with the recovery key).
 
 ## Envelopes, checkpoints, anchors
 
-- An envelope signed by a revoked key counts when its earliest Bitcoin anchor is before the
-  revocation's block (SPEC 8): the earliest anchor among the key's **counted** revocations (a pinned
+- An envelope signed by a revoked key counts when the earliest Bitcoin anchor of its **envelope
+  hash** is before the revocation's block (SPEC 8); anchors of the attested hash do not count here,
+  since anyone can stamp that hash without the key (SPEC erratum E1): the earliest anchor among the key's **counted** revocations (a pinned
   revocation without a bundle has no block, so such envelopes are `not_checked`); an unknown anchor gives `not_checked`, never acceptance. Anchors never
   rescue a key introduction or make a revocation count.
 - A checkpoint signed only by revoked keys keeps `log: verified` only when its signed-note SHA-256

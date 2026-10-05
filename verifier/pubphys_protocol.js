@@ -6,7 +6,8 @@
 import SCHEMAS from "./schemas.js";
 
 const enc = new TextEncoder();
-const dec = new TextDecoder("utf-8", { fatal: true });
+// ignoreBOM: a byte-order mark is kept and then refused (SPEC 1), as in Ruby (review F27, A12).
+const dec = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true });
 const subtle = globalThis.crypto.subtle;
 
 export const SITE = "pubphys.com";
@@ -407,9 +408,10 @@ export function decodeJwt(jwt) {
 async function importRsa(jwk) {
   if (jwk.kty !== "RSA" || typeof jwk.n !== "string" || typeof jwk.e !== "string") throw new ProtocolError("ORCID key is not an RSA JWK");
   const n = fromB64url(jwk.n);
-  let bits = n.length * 8;
-  for (let i = 0; i < n.length && n[i] === 0; i++) bits -= 8;
-  if (n.length && n[0] !== 0) bits -= Math.clz32(n[0]) - 24;
+  // Bits from the first non-zero byte on, as OpenSSL counts them (review F27, A15).
+  let i = 0;
+  while (i < n.length && n[i] === 0) i++;
+  const bits = i < n.length ? (n.length - i) * 8 - (Math.clz32(n[i]) - 24) : 0;
   if (bits < 2048) throw new ProtocolError("ORCID key modulus is shorter than 2048 bits");
   fromB64url(jwk.e);
   return subtle.importKey("jwk", { kty: "RSA", n: jwk.n, e: jwk.e, ext: true }, { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, false, ["verify"]);

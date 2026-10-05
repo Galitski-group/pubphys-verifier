@@ -79,6 +79,12 @@ async function shardFor(entry, shards) {
 // Returns null without a promise, else { status: "kept" | "not_judged", notes }. A promise or an
 // evidence checkpoint signed only by revoked keys is never judged (revoked keys stay in
 // platform_keys for history, so a thief could sign a fresh promise with one).
+// The key that entered a Rekor v2 hashedrekord entry must be one PubPhys pinned (review F19).
+export function rekorSubmitterPinned(body, keys) {
+  const raw = body?.spec?.hashedRekordV002?.signature?.verifier?.publicKey?.rawBytes;
+  return typeof raw === "string" && Array.isArray(keys) && keys.includes(raw);
+}
+
 export async function judgePromise(bundle, trust) {
   const promiseText = bundle?.log?.promise;
   if (typeof promiseText !== "string") return null;
@@ -111,7 +117,9 @@ export async function judgePromise(bundle, trust) {
 
     const entry = evidence.rekor_entry;
     const body = fromB64(entry?.canonicalizedBody || "");
-    const data = JSON.parse(new TextDecoder().decode(body))?.spec?.hashedRekordV002?.data;
+    const parsed = JSON.parse(new TextDecoder().decode(body));
+    if (!rekorSubmitterPinned(parsed, trust.rekor_submission_keys)) return notJudged("the Rekor entry was not made with PubPhys's pinned submission key");
+    const data = parsed?.spec?.hashedRekordV002?.data;
     if (data?.algorithm !== "SHA2_256" || b64url(fromB64(data.digest || "")) !== b64url(await sha256(enc.encode(evidence.checkpoint)))) {
       return notJudged("the Rekor entry is not for the evidence checkpoint");
     }

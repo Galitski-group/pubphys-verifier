@@ -8,6 +8,7 @@ import { noteKeyHash, leafHashRaw, leafHash, canonical, hex, sha256, b64, b64url
 import { judgePromise, parseWitnessKey, cosignatures } from "../verifier/promise_evidence.js";
 
 const enc = new TextEncoder();
+const SUBMITTER = "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE-test-submitter";
 const keypair = () => {
   const { publicKey, privateKey } = crypto.generateKeyPairSync("ed25519");
   return { raw: new Uint8Array(publicKey.export({ format: "der", type: "spki" }).subarray(12)), privateKey };
@@ -24,7 +25,8 @@ async function setup({ cosignTime, deadlineOffset = 3600, tamper = false } = {})
   const root = b64(crypto.randomBytes(32));
   const checkpoint = await signNote(`${LOG_NAME}\n1\n${root}\n`, LOG_NAME, platform);
   const promise = await signNote(`${LOG_NAME} promise\n${leaf}\n0\n${iso(issued)}\n${iso(issued + deadlineOffset)}\n`, LOG_NAME, platform);
-  const body = enc.encode(JSON.stringify({ spec: { hashedRekordV002: { data: { algorithm: "SHA2_256", digest: b64(await sha256(enc.encode(checkpoint))) } } } }));
+  const body = enc.encode(JSON.stringify({ spec: { hashedRekordV002: { data: { algorithm: "SHA2_256", digest: b64(await sha256(enc.encode(checkpoint))) },
+    signature: { content: "", verifier: { publicKey: { rawBytes: SUBMITTER }, keyDetails: "PKIX_ECDSA_P256_SHA_256" } } } } }));
   const rekorRoot = b64(await leafHashRaw(body));
   const rekorBody = `rekor.test\n1\n${rekorRoot}\n`;
   const wname = "witness.test";
@@ -39,7 +41,7 @@ async function setup({ cosignTime, deadlineOffset = 3600, tamper = false } = {})
   const entry = { logId: { keyId: logId }, canonicalizedBody: b64(body), inclusionProof: { logIndex: "0", treeSize: "1", rootHash: rekorRoot, hashes: [], checkpoint: { envelope } } };
   const vkey = `${wname}+${Buffer.from(wkh).toString("hex")}+${b64(new Uint8Array([0x04, ...witness.raw]))}`;
   const bundle = { record: { type: "topic" }, envelope: envelope0, log: { leaf_index: "0", tree_size: "1", checkpoint, promise } };
-  const trust = { platform_keys: [b64url(platform.raw)], witness_keys: [vkey], promise_evidence: { checkpoint, consistency: [], rekor_entry: entry },
+  const trust = { platform_keys: [b64url(platform.raw)], witness_keys: [vkey], rekor_submission_keys: [SUBMITTER], promise_evidence: { checkpoint, consistency: [], rekor_entry: entry },
                   rekor_shards: [{ url: "https://rekor.test", log_id: logId, public_key: b64(shard.raw) }] };
   return { bundle, trust, issued, platformId: await keyId(b64url(platform.raw)) };
 }
@@ -84,6 +86,11 @@ test("a promise signed by a revoked key, a Rekor log outside the trust file or a
   assert.equal((await judgePromise(bundle, { ...trust, revocations: [{ key_id: platformId, anchor_height: null }] })).status, "not_judged");
   assert.equal((await judgePromise(bundle, { ...trust, revoked_keys: [{ key_id: platformId }] })).status, "not_judged");
   assert.equal((await judgePromise(bundle, { ...trust, rekor_shards: [] })).status, "not_judged");
+  // Review F19: an entry made with any key PubPhys did not pin is not PubPhys's.
+  const notPinned = await judgePromise(bundle, { ...trust, rekor_submission_keys: ["MFkw-another-key"] });
+  assert.equal(notPinned.status, "not_judged");
+  assert.match(notPinned.notes.join(" "), /pinned submission key/);
+  assert.equal((await judgePromise(bundle, { ...trust, rekor_submission_keys: [] })).status, "not_judged");
   const other = await setup({ cosignTime: 1790990000 + 600 });
   assert.equal((await judgePromise(bundle, { ...trust, rekor_shards: other.trust.rekor_shards })).status, "not_judged");
   const fork = await setup({ cosignTime: 1790990000 + 600 });

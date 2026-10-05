@@ -16,29 +16,51 @@ async function sha256Hex(obj) {
   return Array.from(d, x => x.toString(16).padStart(2, "0")).join("");
 }
 
+// An envelope of a revoked key against the revocation's block: the earliest anchor of the envelope
+// hash itself must come before it; anything unknown is not_checked, never acceptance.
+export function judgeRevocation(envelopeHeight, revocationHeight) {
+  if (!Number.isSafeInteger(envelopeHeight) || !Number.isSafeInteger(revocationHeight)) {
+    return { platform: "not_checked", note: "platform: signed by a revoked key; the anchors of the envelope and of the revocation needed to compare them are not known" };
+  }
+  if (envelopeHeight >= revocationHeight) {
+    return { platform: "failed", note: `platform: signed by a key revoked at block ${revocationHeight}, after which this envelope was anchored` };
+  }
+  return { platform: "verified", note: `platform: signed by a key revoked later (block ${revocationHeight}); the envelope was anchored before, so it counts` };
+}
+
 export async function verifyFull(bundleText, trust, { getHeader = null } = {}) {
   // time first: the earliest valid Bitcoin anchor of any proof of the attested or envelope hash
   // (SPEC 10); it also feeds the ORCID iat window and the revocation comparison.
   let time = null;
+  let envelopeHeight = null; // earliest anchor of the envelope hash alone, for the revocation comparison
   const timeNotes = [];
   let bundleForTime = null;
   try { bundleForTime = parseJsonStrict(bundleText); } catch { bundleForTime = null; }
-  if (getHeader && bundleForTime?.ots && bundleForTime.attested && bundleForTime.envelope) {
-    const hashes = { attested: await sha256Hex(bundleForTime.attested), envelope: await sha256Hex(bundleForTime.envelope) };
-    time = { status: "not_checked", height: null, time: null };
-    let invalid = false;
-    for (const kind of ["attested", "envelope"]) {
-      for (const proof of bundleForTime.ots[kind] || []) {
-        let r;
-        try { r = await verifyOts(fromB64url(proof), fromHex(hashes[kind]), getHeader); } catch (e) { r = { status: "failed", notes: [e.message] }; }
-        r.notes.forEach(n => timeNotes.push(`time: ${kind}: ${n}`));
-        if (r.status === "failed") invalid = true;
-        if (r.status === "verified" && (time.height === null || r.height < time.height)) Object.assign(time, { status: "verified", height: r.height, time: r.time });
+  // A malformed bundle must not make the time step throw (SPEC 11: a verifier never throws; review
+  // F27, A17): it is skipped, and the structure part reports the bundle.
+  const otsLists = bundleForTime?.ots;
+  const timeable = getHeader && otsLists && typeof otsLists === "object" && bundleForTime.attested && bundleForTime.envelope &&
+    ["attested", "envelope"].every(k => otsLists[k] === undefined || (Array.isArray(otsLists[k]) && otsLists[k].every(p => typeof p === "string")));
+  if (timeable) {
+    let hashes = null;
+    try { hashes = { attested: await sha256Hex(bundleForTime.attested), envelope: await sha256Hex(bundleForTime.envelope) }; } catch { hashes = null; }
+    if (hashes) {
+      time = { status: "not_checked", height: null, time: null };
+      let invalid = false;
+      for (const kind of ["attested", "envelope"]) {
+        for (const proof of bundleForTime.ots[kind] || []) {
+          let r;
+          try { r = await verifyOts(fromB64url(proof), fromHex(hashes[kind]), getHeader); } catch (e) { r = { status: "failed", notes: [e.message] }; }
+          r.notes.forEach(n => timeNotes.push(`time: ${kind}: ${n}`));
+          if (r.status === "failed") invalid = true;
+          if (r.status === "verified" && (time.height === null || r.height < time.height)) Object.assign(time, { status: "verified", height: r.height, time: r.time });
+          if (r.status === "verified" && kind === "envelope" && (envelopeHeight === null || r.height < envelopeHeight)) envelopeHeight = r.height;
+        }
       }
+      // The earliest valid anchor counts (SPEC 10); invalid attempts fail the part only when none is valid.
+      if (time.status !== "verified" && invalid) time.status = "failed";
+      if (time.status === "verified" && trust.earliest_anchor == null) trust.earliest_anchor = new Date(time.time * 1000).toISOString().replace(/\.\d{3}Z$/, "Z");
     }
-    // The earliest valid anchor counts (SPEC 10); invalid attempts fail the part only when none is valid.
-    if (time.status !== "verified" && invalid) time.status = "failed";
-    if (time.status === "verified" && trust.earliest_anchor == null) trust.earliest_anchor = new Date(time.time * 1000).toISOString().replace(/\.\d{3}Z$/, "Z");
   }
 
   // Live ORCID keys (fetch-orcid-keys --live) count only while fresh: a key ORCID has since removed must
@@ -59,20 +81,15 @@ export async function verifyFull(bundleText, trust, { getHeader = null } = {}) {
     if (time.status === "verified") notes.push(`time: earliest anchor in Bitcoin block ${time.height} (${new Date(time.time * 1000).toISOString()})`);
   }
 
-  // Revoked keys (from fetch-trust): an envelope signed by a revoked key counts only if its anchor is
-  // earlier than the revocation's; unknown anchors leave platform not checked (SPEC 8).
+  // Revoked keys (from fetch-trust): an envelope signed by a revoked key counts only if the envelope
+  // hash was anchored before the revocation (protocol/verifier/TRUST.md). Only proofs of the envelope
+  // hash count here: the attested hash needs no key, so anyone could have stamped it early.
   const signer = bundleForTime?.envelope?.platform_signature?.key_id;
   const revocation = Array.isArray(trust.revocations) ? trust.revocations.find(r => r?.key_id === signer) : null;
   if (revocation && parts.platform === "verified") {
-    if (time?.status !== "verified" || !Number.isSafeInteger(revocation.anchor_height)) {
-      parts.platform = "not_checked";
-      notes.push("platform: signed by a revoked key; the anchors needed to compare with the revocation are not known");
-    } else if (time.height >= revocation.anchor_height) {
-      parts.platform = "failed";
-      notes.push(`platform: signed by a key revoked at block ${revocation.anchor_height}, after which this record was anchored`);
-    } else {
-      notes.push(`platform: signed by a key revoked later (block ${revocation.anchor_height}); anchored before, so it counts`);
-    }
+    const verdict = judgeRevocation(envelopeHeight, revocation.anchor_height);
+    parts.platform = verdict.platform;
+    notes.push(verdict.note);
   }
 
   // A checkpoint signed by a revoked key (protocol/verifier/TRUST.md): the log part stands only for the

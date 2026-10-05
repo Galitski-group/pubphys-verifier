@@ -414,3 +414,17 @@ checkpoints from Rekor, and judging promise fulfillment against the witness's pu
 Besides the vectors, `protocol/test/differential/` runs a deterministic differential fuzz of both
 implementations (mutated bundles, strict JSON, times, signed notes), and `protocol/bin/check` runs
 it with every test. The vectors exercise the witness check with a supplied witnessed checkpoint.
+
+## Errata
+
+Clarifications decided after the freeze. They change no hashed, signed or stamped byte, no schema
+and no vector; they narrow how a verifier applies a rule.
+
+- **E1 (2026-10-05), section 8, revocation.** "Earliest anchor" of an envelope signed by the revoked
+  key means the earliest valid anchor of a proof of the **envelope hash**. Proofs of the attested
+  hash do not count for this comparison: the attested hash needs no key, so anyone could have
+  stamped it before the revocation. The record's `time` part (section 10) and the ORCID `iat`
+  window (section 7.2) keep using the earliest anchor of either hash. The revocation's own anchor
+  block may come from either hash of the revocation record: an earlier block only tightens the rule,
+  and only a key holder can make a revocation that counts. Verifier policy:
+  `protocol/verifier/TRUST.md`.

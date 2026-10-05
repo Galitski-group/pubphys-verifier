@@ -9,5 +9,8 @@
   "witness_keys": [
     "witness.stagemole.eu+67f7aea0+BEqSG3yu9YrmcM3BHvQYTxwFj3uSWakQepafafpUqklv"
   ],
+  "rekor_submission_keys": [
+    "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE+Wyx20D9fmP9+kTIWSiZuhRofVu1eiNRg8Ypr5iRiMcz+4jzlpdT2HR4BMFr2ih03kxKIQl8KiKdTI1YZ/w6dQ=="
+  ],
   "revoked_keys": []
 }

@@ -4,14 +4,15 @@
 // public keys: a key is trusted only when its record bundle verifies against keys already trusted,
 // starting from the recovery key whose fingerprint you pinned (DNS, documentation).
 //
-//   node verifier/fetch-trust.mjs [--recovery-key-id <hex>] [--dir <mirror checkout>] [--bitcoin [url]] > trust.json
+//   node verifier/fetch-trust.mjs [--recovery-key-id <hex>] [--dir <mirror checkout>] [--bitcoin [url]] > my-trust.json
 //   (without --recovery-key-id, the fingerprint pinned in verifier/defaults.json)
 //
 // The trust rule of protocol/verifier/TRUST.md decides which keys are trusted. A revoked key stays in
 // the chain for envelopes anchored before its revocation (SPEC section 8); the revocations are written
 // with their anchor block when --bitcoin can establish it, and pubphys-verify compares the blocks.
 // The ORCID client id comes from --orcid-client-id or the verifier's pinned defaults
-// (verifier/defaults.json), never from the mirror's trust.json.
+// (verifier/defaults.json), never from the mirror's trust.json; so do the Rekor submission keys that
+// may enter PubPhys checkpoints in Rekor (--rekor-submission-key <base64 DER>, repeatable).
 //
 // Exit codes: 0 trust written; 1 the chain could not be built; 2 usage error.
 
@@ -31,6 +32,8 @@ if (!/^[0-9a-f]{64}$/.test(pinned)) { console.error("usage: fetch-trust --recove
 const fail = msg => { console.error("fetch-trust: " + msg); process.exit(1); };
 const read = p => parseJsonStrict(new TextDecoder("utf-8", { fatal: true }).decode(fs.readFileSync(p)));
 
+// "> trust.json" in the mirror checkout empties the file this reads before it starts.
+if (fs.existsSync(path.join(dir, "trust.json")) && fs.statSync(path.join(dir, "trust.json")).size === 0) fail("trust.json is empty: write the output to another file, e.g. > my-trust.json");
 const published = read(path.join(dir, "trust.json"));
 const recovery = [];
 for (const k of published.recovery_keys || []) if (typeof k.public_key === "string" && (await keyId(k.public_key)) === pinned) recovery.push(k.public_key);
@@ -76,4 +79,7 @@ const clientIds = opt("--orcid-client-id") ? [opt("--orcid-client-id")] : (defau
 process.stdout.write(JSON.stringify({ platform_keys: signing, recovery_keys: recovery, orcid_keys: [],
   orcid_client_ids: clientIds, earliest_anchor: null, witness: null, revocations,
   revoked_keys: defaults.revoked_keys || [],
+  // The keys that may enter PubPhys checkpoints in Rekor (review F19): an entry made with any other
+  // key is not PubPhys's, so a forked log cannot pass as witnessed.
+  rekor_submission_keys: args.includes("--rekor-submission-key") ? args.flatMap((x, i) => (x === "--rekor-submission-key" ? [args[i + 1]] : [])) : (defaults.rekor_submission_keys || []),
   witness_keys: args.includes("--witness-key") ? args.flatMap((x, i) => (x === "--witness-key" ? [args[i + 1]] : [])) : (defaults.witness_keys || []) }, null, 2) + "\n");

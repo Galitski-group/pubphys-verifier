@@ -23,7 +23,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { parseJsonStrict, sha256, fromB64, b64, b64url, verifyInclusion, leafHashRaw, verifyNote, parseNote, parsePromise } from "./pubphys_protocol.js";
-import { parseWitnessKey, cosignatures } from "./promise_evidence.js";
+import { parseWitnessKey, cosignatures, rekorSubmitterPinned } from "./promise_evidence.js";
 
 const args = process.argv.slice(2);
 const opt = name => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
@@ -39,6 +39,13 @@ const trust = read(opt("--trust"));
 const SPKI_ED25519 = "302a300506032b6570032100";
 const rootPath = opt("--sigstore-trusted-root");
 let trustedRoot;
+if (!rootPath && !args.includes("--fetch-sigstore-root-unverified")) {
+  console.error("fetch-witness: pass --sigstore-trusted-root <file> (Sigstore's trusted root obtained through TUF), or --fetch-sigstore-root-unverified");
+  process.exit(2);
+}
+if (!Array.isArray(trust.rekor_submission_keys) || trust.rekor_submission_keys.length === 0) {
+  fail("the trust file has no rekor_submission_keys; run fetch-trust from this verifier release again");
+}
 if (rootPath) trustedRoot = read(rootPath);
 else if (args.includes("--fetch-sigstore-root-unverified")) {
   const url = "https://raw.githubusercontent.com/sigstore/root-signing/main/targets/trusted_root.json";
@@ -72,7 +79,9 @@ async function rekorLogged(note, entry) {
   const shard = shards.find(s => s.log_id === entry?.logId?.keyId);
   if (!shard) return false;
   const body = fromB64(entry.canonicalizedBody);
-  const data = JSON.parse(new TextDecoder().decode(body))?.spec?.hashedRekordV002?.data;
+  const parsed = JSON.parse(new TextDecoder().decode(body));
+  if (!rekorSubmitterPinned(parsed, trust.rekor_submission_keys)) return false; // another key: not PubPhys's entry
+  const data = parsed?.spec?.hashedRekordV002?.data;
   const digest = await sha256(enc.encode(note));
   if (data?.algorithm !== "SHA2_256" || b64url(fromB64(data.digest)) !== b64url(digest)) return false;
   const proof = entry.inclusionProof;
